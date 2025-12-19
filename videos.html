@@ -6,7 +6,7 @@
     <title>Marianne Deramo - Videos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="videos-page">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -15,8 +15,8 @@
             </div>
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
+                <a href="BeLoved.html" class="nav-link">BeLoved</a>
                 <a href="videos.html" class="nav-link">Videos</a>
-                <a href="events.html" class="nav-link">Events</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
             <div class="hamburger">
@@ -27,7 +27,7 @@
         </div>
     </nav>
 
-    <section class="page-header">
+    <section class="page-header videos-header">
         <div class="container">
             <h1>Videos</h1>
             <p>Watch my latest content and messages</p>
@@ -36,12 +36,6 @@
 
     <section class="videos-section">
         <div class="container">
-            <div class="video-filters">
-                <button class="filter-btn active" data-filter="all">All Videos</button>
-                <button class="filter-btn" data-filter="recent">Recent</button>
-                <button class="filter-btn" data-filter="popular">Popular</button>
-            </div>
-            
             <div class="videos-grid">
                 <!-- Video 1 -->
                 <div class="video-card" data-category="recent">
@@ -50,7 +44,8 @@
                         <div class="play-overlay">▶</div>
                     </div>
                     <div class="video-info">
-                        <h3>Video Title 1</h3>
+                        <h3>Staying Anchored in Prayer</h3>
+                        <p class="video-caption">A short reflection on letting Jesus steady your day.</p>
                         <p class="video-date">Posted on March 1, 2024</p>
                         <p class="video-desc">Brief description of the video content goes here.</p>
                         <a href="#" class="watch-btn">Watch Video</a>
@@ -64,7 +59,8 @@
                         <div class="play-overlay">▶</div>
                     </div>
                     <div class="video-info">
-                        <h3>Video Title 2</h3>
+                        <h3>Mercy in the Everyday</h3>
+                        <p class="video-caption">Stories of God’s mercy showing up in small moments.</p>
                         <p class="video-date">Posted on February 15, 2024</p>
                         <p class="video-desc">Brief description of the video content goes here.</p>
                         <a href="#" class="watch-btn">Watch Video</a>
@@ -77,8 +73,11 @@
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 COMPANY NAME. All rights reserved.</p>
+        <div class="container footer-content">
+            <a href="index.html" class="footer-logo">
+                <img src="images/head_logo2.png" alt="Home">
+            </a>
+            <a href="contact.html" class="footer-cta">Contact Marianne</a>
         </div>
     </footer>
 

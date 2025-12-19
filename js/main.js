@@ -68,9 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Simple form validation
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const topic = document.getElementById('topic')?.value;
             const message = document.getElementById('message').value;
             
-            if (name && email && message) {
+            if (name && email && topic && message) {
                 // Here you would typically send the form data to a server
                 alert('Thank you for your message! I will get back to you soon.');
                 contactForm.reset();
@@ -79,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Dates remain optional; free-text field requires no extra handling
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -92,5 +95,118 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+    });
+
+    // Simple rotating gallery
+    const belovedImages = [
+        'beloved_images/20210625_194505_Original.JPG',
+        'beloved_images/20210625_202330_Original.JPG',
+        'beloved_images/20210626_145041_Original.JPG',
+        'beloved_images/20221112_085033_Original.JPG',
+        'beloved_images/20221112_130916_Original.JPG',
+        'beloved_images/20221112_201201_Original.JPG',
+        'beloved_images/IMG_0032.jpg',
+        'beloved_images/IMG_0461_Original.JPG',
+        'beloved_images/IMG_0463_Original.JPG',
+        'beloved_images/IMG_0468_Original.JPG',
+        'beloved_images/IMG_0471.jpeg',
+        'beloved_images/IMG_0598.JPG',
+        'beloved_images/IMG_0640.JPG',
+        'beloved_images/IMG_0693.JPG',
+        'beloved_images/IMG_0703.JPG',
+        'beloved_images/IMG_0706.JPG',
+        'beloved_images/IMG_20251101_183118712_MP~2_Original.JPG',
+        'beloved_images/IMG_20251101_193739712_HDR_Original.JPG',
+        'beloved_images/IMG_20251101_194005450_MP_Original.JPG',
+        'beloved_images/IMG_2920.jpeg',
+        'beloved_images/IMG_2922.jpeg',
+        'beloved_images/IMG_2923.jpeg',
+        'beloved_images/IMG_2934.jpeg',
+        'beloved_images/IMG_2941.jpeg',
+        'beloved_images/IMG_2952.jpeg',
+        'beloved_images/IMG_2958.jpeg',
+        'beloved_images/IMG_2961.jpeg',
+        'beloved_images/IMG_2962.jpeg',
+        'beloved_images/IMG_2963.jpeg',
+        'beloved_images/IMG_2975.jpeg',
+        'beloved_images/IMG_2980.jpeg',
+        'beloved_images/IMG_2994.jpeg',
+        'beloved_images/IMG_3003.jpeg',
+        'beloved_images/IMG_3010.jpeg',
+        'beloved_images/IMG_3012.jpeg',
+        'beloved_images/IMG_3027.jpeg',
+        'beloved_images/IMG_3061.jpeg',
+        'beloved_images/IMG_3110.jpeg',
+        'beloved_images/IMG_3112.jpeg',
+        'beloved_images/IMG_3120.jpeg',
+        'beloved_images/IMG_3121.jpeg',
+        'beloved_images/IMG_3458.JPG',
+        'beloved_images/IMG_3512.JPG',
+        'beloved_images/IMG_3525.JPG',
+        'beloved_images/IMG_3532.JPG',
+        'beloved_images/IMG_3563.JPG',
+        'beloved_images/IMG_4107.JPG',
+        'beloved_images/IMG_4608.JPG',
+        'beloved_images/IMG_5416_Original.jpeg',
+        'beloved_images/IMG_5521_Original.jpeg',
+        'beloved_images/IMG_5538_Original.jpeg',
+        'beloved_images/IMG_7102_Original.JPG',
+        'beloved_images/IMG_7347.jpeg',
+        'beloved_images/IMG_7351.jpeg',
+        'beloved_images/IMG_7571.jpeg',
+        'beloved_images/IMG_7572.jpeg',
+        'beloved_images/IMG_7573.jpeg',
+        'beloved_images/IMG_7576.jpeg',
+        'beloved_images/IMG_7600.jpeg',
+        'beloved_images/IMG_7612.jpg',
+        'beloved_images/IMG_8323_Original.JPG',
+        'beloved_images/IMG_8791.jpeg',
+        'beloved_images/IMG_8797.jpeg',
+        'beloved_images/IMG_8921.jpeg',
+        'beloved_images/IMG_8930.jpeg',
+        'beloved_images/IMG_9715.JPG',
+        'beloved_images/PXL_20210626_035123431.MP~2_Original.jpg',
+        'beloved_images/PXL_20210626_232008537.MP_Original.jpg',
+        'beloved_images/PXL_20210626_232139665.MP_Original.JPG',
+        'beloved_images/PXL_20210627_162842977_Original.JPG',
+        'beloved_images/PXL_20210627_172225718.MP_Original.jpg',
+        'beloved_images/PXL_20251101_233804099_Original.JPG',
+        'beloved_images/PXL_20251101_234110411_Original.JPG',
+        'beloved_images/PXL_20251102_014109026_Original.JPG',
+        'beloved_images/PXL_20251102_174415541.MP_Original.JPG',
+        'beloved_images/PXL_20251102_181514182_Original.JPG'
+    ];
+
+    const galleries = document.querySelectorAll('[data-gallery-images], [data-gallery-folder]');
+    galleries.forEach(gallery => {
+        const img = gallery.querySelector('img');
+        let sources = [];
+
+        if (gallery.dataset.galleryFolder === 'beloved_images') {
+            sources = belovedImages;
+        } else if (gallery.dataset.galleryImages) {
+            sources = gallery.dataset.galleryImages
+                .split(',')
+                .map(src => src.trim())
+                .filter(Boolean);
+        }
+
+        if (!img || sources.length < 2) return;
+
+        let index = 0;
+
+        // Ensure the first image uses the gallery list
+        img.src = sources[index];
+
+        setInterval(() => {
+            img.style.opacity = '0.2';
+            setTimeout(() => {
+                index = (index + 1) % sources.length;
+                img.src = sources[index];
+                img.onload = () => {
+                    img.style.opacity = '1';
+                };
+            }, 200);
+        }, 5000);
     });
 });
