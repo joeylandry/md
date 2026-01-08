@@ -350,6 +350,13 @@ background-repeat: no-repeat;
     margin-bottom: 0.75rem;
 }
 
+.quote-author {
+    font-style: normal;
+    font-weight: 600;
+    color: rgba(51, 51, 51, 0.85);
+    margin-bottom: 0;
+}
+
 .section-quotes {
     margin-top: 1.75rem;
     text-align: center;
@@ -367,11 +374,73 @@ background-repeat: no-repeat;
     background: linear-gradient(315deg, var(--primary-color), #E1F5FE);
 }
 
+.beloved-intro {
+    padding: 70px 0 40px;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(225, 245, 254, 0.9)),
+        url("../images/gray_background1.jpeg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.beloved-intro h2 {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.beloved-intro p {
+    max-width: 980px;
+    margin: 0 auto 1rem;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: center;
+}
+
+.beloved-copy {
+    margin-bottom: 1.25rem;
+}
+
+.beloved-copy p {
+    text-align: center;
+}
+
+.beloved-topics-card {
+    max-width: 760px;
+    margin: 1.25rem auto 1.75rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--accent-color);
+    border: 1.5px solid rgba(179, 229, 252, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    display: inline-block;
+    width: auto;
+    text-align: left;
+}
+
+.beloved-topics-label {
+    margin: 0 0 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: block;
+    text-align: center;
+}
+
+.beloved-topics-list {
+    list-style: disc;
+    max-width: 620px;
+    margin: 0.25rem auto 1.5rem;
+    padding-left: 1.25rem;
+    text-align: left;
+    line-height: 1.7;
+}
+
 /* Page Headers */
 .page-header {
     background: linear-gradient(135deg, var(--primary-color), #E6E6FA);
     padding: 120px 0 60px;
-    text-align: center;
     margin-top: 70px;
 }
 
@@ -414,6 +483,20 @@ background-repeat: no-repeat;
     margin: -0.2rem 0 0;
 }
 
+.page-header .container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-header .hero-quote {
+    max-width: 520px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 /* Contact Section */
 .contact-grid {
     display: grid;
@@ -427,6 +510,30 @@ background-repeat: no-repeat;
     background-position: center 50%;
     background-repeat: no-repeat;
     background-attachment: fixed; /* optional for subtle parallax effect */
+}
+
+.contact-email {
+    margin: 0.9rem auto 0;
+    text-align: center;
+}
+
+.contact-email a {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.contact-email a:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 
@@ -689,7 +796,7 @@ background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
     flex-wrap: wrap;
 }
 
@@ -718,6 +825,31 @@ background-repeat: no-repeat;
 }
 
 .footer-cta:hover {
+    background: var(--accent-color);
+    color: var(--text-color);
+}
+
+.footer-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-email {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.3rem 0.75rem;
+    border: 1.25px solid rgba(51, 51, 51, 0.25);
+    border-radius: 6px;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.footer-email:hover {
     background: var(--accent-color);
     color: var(--text-color);
 }
@@ -784,5 +916,10 @@ background-repeat: no-repeat;
     .event-date {
         min-width: auto;
         padding: 1rem;
+    }
+
+    .footer-content {
+        justify-content: center;
+        text-align: center;
     }
 }
